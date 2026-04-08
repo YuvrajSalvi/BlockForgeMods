@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - BlockForgeMods</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .admin-box { max-width: 600px; margin: 50px auto; background: var(--card-bg); padding: 30px; border-radius: 15px; border: 1px solid #333; }
+        .admin-box input, .admin-box select, .admin-box textarea {
+            width: 100%; padding: 12px; margin-bottom: 15px; background: #0b0e11; border: 1px solid #444; color: white; border-radius: 8px; font-family: inherit;
+        }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">BlockForgeMods Admin</a>
+        <button id="logout-btn" style="background:red; color:white; border:none; padding:8px 15px; border-radius:5px; cursor:pointer;">Logout</button>
+    </header>
+
+    <div class="admin-box">
+        <h2 style="color:var(--accent); margin-bottom:20px;">Upload New Content</h2>
+        <form id="upload-form">
+            <label>Select Category</label>
+            <select id="category" required>
+                <option value="mods">Mods</option>
+                <option value="maps">Maps</option>
+                <option value="plugins">Plugins</option>
+                <option value="texturepack">Texture Packs</option>
+                <option value="apks">APKs</option>
+                <option value="servers">Server List</option>
+            </select>
+
+            <input type="text" id="name" placeholder="Name" required>
+            <input type="text" id="thumb" placeholder="Thumbnail Image URL" required>
+
+            <!-- Regular Fields -->
+            <div id="regular-fields">
+                <input type="text" id="author" placeholder="Author Name">
+                <input type="text" id="download" placeholder="Download Link">
+                <textarea id="desc" rows="4" placeholder="Description"></textarea>
+                <input type="text" id="screenshots" placeholder="Screenshot URLs (comma separated)">
+            </div>
+
+            <!-- Server Specific Fields -->
+            <div id="server-fields" class="hidden">
+                <input type="text" id="ip" placeholder="Server IP">
+                <input type="text" id="port" placeholder="Server Port (e.g. 19132)">
+            </div>
+
+            <button type="submit" class="btn" style="width:100%;">Post to BlockForgeMods</button>
+        </form>
+    </div>
+
+    <script type="module" src="js/admin.js"></script>
+</body>
+</html>
